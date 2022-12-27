@@ -77,6 +77,11 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Image",
           },
+          "imageMobile": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Image Mobile",
+          },
           "altText": {
             "type": "string",
             "title": "Alt Text",
@@ -92,6 +97,7 @@ const manifest: DecoManifest = {
         },
         "required": [
           "image",
+          "imageMobile",
           "altText",
           "title",
           "subTitle",
@@ -143,13 +149,48 @@ const manifest: DecoManifest = {
       "inputSchema": {
         "type": "object",
         "properties": {
-          "h1": {
-            "type": "string",
-            "title": "H1",
+          "menu": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                },
+                "link": {
+                  "type": "string",
+                  "title": "Link",
+                },
+                "submenus": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "title": "Text",
+                      },
+                      "link": {
+                        "type": "string",
+                        "title": "Link",
+                      },
+                    },
+                    "required": [],
+                  },
+                  "title": "Submenus",
+                },
+              },
+              "required": [
+                "text",
+                "submenus",
+              ],
+            },
+            "title": "Menu",
           },
         },
         "required": [
-          "h1",
+          "menu",
         ],
       },
       "outputSchema": null,
@@ -174,6 +215,10 @@ const manifest: DecoManifest = {
             "format": "image-uri",
             "type": "string",
             "title": "Image",
+          },
+          "backgroundAtImage": {
+            "type": "boolean",
+            "title": "Background At Image",
           },
         },
         "required": [

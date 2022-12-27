@@ -2,18 +2,20 @@ import { apply, tw } from "twind";
 import { animation, css } from "twind/css";
 
 export interface Props {
-  h1: string;
+  menu: {
+    text: string;
+    link?: string;
+    submenus: { text?: string; link?: string }[];
+  }[];
 }
 
-export default function Header({ h1 }: Props) {
+export default function Header({ menu }: Props) {
   return (
-    <header class={tw`py-4\.5 h-full py-5`}>
-      <nav
-        class={tw`flex justify-between items-center px-14 max-w-screen-2xl m-auto`}
-      >
+    <header class="h-full py-[1.125rem]">
+      <nav class="flex justify-between items-center px-14 max-w-screen-2xl m-auto">
         <a
           href="/"
-          class={tw`flex justify-center items-center gap-4 text-primary`}
+          class="flex justify-center items-center gap-4 text-primary"
         >
           <svg
             class="flex-none text-blue-dark h-10"
@@ -97,18 +99,21 @@ export default function Header({ h1 }: Props) {
           </svg>
         </a>
 
-        <div class={tw`flex`}>
-          <ul class={tw`flex`}>
-            <li>Modules</li>
-            <li>Docs</li>
-            <li>Deploy</li>
-            <li>Community</li>
+        <div class="text-blue-dark gap-10 hidden md:flex">
+          <ul class="flex items-center gap-8 font-medium">
+            {menu.map((menu) => {
+              return (
+                <>
+                  <li>
+                    <a href={menu.link}>{menu.text}</a>
+                  </li>
+                </>
+              );
+            })}
           </ul>
 
-          <button
-            class={tw`pl-4 bg-primary flex-grow lg:w-80 lg:flex-none rounded-md  hover:bg-azure2 disabled:invisible`}
-          >
-            <div class={tw`flex items-center pointer-events-none`}>
+          <button class="pl-4 bg-blue-grey flex-grow lg:w-80 lg:flex-none rounded-md disabled:invisible">
+            <div class="flex items-center pointer-events-none">
               <svg
                 width="14"
                 height="14"
@@ -129,7 +134,9 @@ export default function Header({ h1 }: Props) {
                   </clipPath>
                 </defs>
               </svg>
-              <div>Search...</div>
+              <div class="py-[0.625rem] flex-auto text-left ml-[0.375rem]">
+                Search...
+              </div>
               <div class="mx-4">Ctrl K</div>
             </div>
           </button>

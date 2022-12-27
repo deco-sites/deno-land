@@ -11,10 +11,10 @@ export default function ThreeColumnCards(
   { firstColumn, secondColumn, thirdColumn }: Props,
 ) {
   return (
-    <div class="flex justify-between flex-col gap-11 lg:flex-row lg:gap-[8%] mt-16 w-full max-w-screen-xl m-auto">
-      <div class="flex items-start flex-row-reverse gap-8 lg:flex-col lg:gap-9">
+    <div class="flex justify-between flex-col gap-11 lg:flex-row lg:gap-[8%] mt-16 w-full max-w-screen-xl m-auto px-6">
+      <div class="flex items-start flex-row-reverse gap-4 lg:flex-col lg:gap-9">
         <div
-          class="w-16"
+          class="w-40"
           dangerouslySetInnerHTML={{ __html: firstColumn.svgIcon }}
         >
         </div>
@@ -29,7 +29,7 @@ export default function ThreeColumnCards(
       </div>
       <div class="flex items-start flex-row-reverse gap-8 lg:flex-col lg:gap-9">
         <div
-          class="w-16"
+          class="w-40"
           dangerouslySetInnerHTML={{ __html: secondColumn.svgIcon }}
         >
         </div>
@@ -44,7 +44,7 @@ export default function ThreeColumnCards(
       </div>
       <div class="flex items-start flex-row-reverse gap-8 lg:flex-col lg:gap-9">
         <div
-          class="w-16"
+          class="w-40"
           dangerouslySetInnerHTML={{ __html: thirdColumn.svgIcon }}
         >
         </div>

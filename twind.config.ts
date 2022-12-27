@@ -18,6 +18,7 @@ export default {
       "blue-dark": "#12124B",
       "blue-light": "#0A4BAB",
       "blue-super-light": "#209DEE",
+      "blue-grey": "#E1ECF2",
       transparent: "transparent",
       secondary: "white",
       "azure": "#E1F8FF",
