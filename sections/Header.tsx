@@ -1,6 +1,3 @@
-import { apply, tw } from "twind";
-import { animation, css } from "twind/css";
-
 export interface Props {
   menu: {
     text: string;
@@ -9,14 +6,11 @@ export interface Props {
   }[];
 }
 
-export default function Header({ menu }: Props) {
+export default function Header({ menu = [] }: Props) {
   return (
     <header class="h-full py-[1.125rem]">
       <nav class="flex justify-between items-center px-14 max-w-screen-2xl m-auto">
-        <a
-          href="/"
-          class="flex justify-center items-center gap-4 text-primary"
-        >
+        <a href="/" class="flex justify-center items-center gap-4 text-primary">
           <svg
             class="flex-none text-blue-dark h-10"
             viewBox="0 0 30 30"
