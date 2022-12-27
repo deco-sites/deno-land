@@ -6,17 +6,15 @@ export interface Props {
   url: string;
   imageUrl: string;
   faviconUrl: string;
-  styleUrls: string[];
   themeColor: string;
 }
 
 export default function HeadComponent({
-  title = "deco.cx — starter site",
+  title,
   description = "Deliver complete commerce experiences — start here!",
   url = "https://start.deco.site",
   imageUrl = "https://deco.cx/images/deco-logo-light.png",
-  faviconUrl = "",
-  styleUrls = [],
+  faviconUrl = "/deno.ico",
   themeColor = "#003232",
 }: Props) {
   return (
@@ -50,9 +48,6 @@ export default function HeadComponent({
       </link>
       <meta name="theme-color" content="#003232"></meta>
       <meta name="msapplication-TileColor" content="#003232"></meta>
-      {styleUrls?.map((styleUrl: string) => (
-        <link rel="stylesheet" href={asset(styleUrl)}></link>
-      ))}
       <style
         dangerouslySetInnerHTML={{
           __html: `

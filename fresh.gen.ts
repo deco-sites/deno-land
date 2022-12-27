@@ -9,8 +9,12 @@ import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/index.tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
-import * as $$$0 from "./sections/GetStarted.tsx";
-import * as $$$1 from "./sections/Head.tsx";
+import * as $$$0 from "./sections/Announcement.tsx";
+import * as $$$1 from "./sections/Banner.tsx";
+import * as $$$2 from "./sections/Head.tsx";
+import * as $$$3 from "./sections/Header.tsx";
+import * as $$$4 from "./sections/ImageWithText.tsx";
+import * as $$$5 from "./sections/SectionTitle.tsx";
 
 const manifest: DecoManifest = {
   routes: {
@@ -20,19 +24,74 @@ const manifest: DecoManifest = {
     "./routes/index.tsx": $3,
   },
   islands: { "./islands/LiveControls.tsx": $$0 },
-  sections: { "./sections/GetStarted.tsx": $$$0, "./sections/Head.tsx": $$$1 },
+  sections: {
+    "./sections/Announcement.tsx": $$$0,
+    "./sections/Banner.tsx": $$$1,
+    "./sections/Head.tsx": $$$2,
+    "./sections/Header.tsx": $$$3,
+    "./sections/ImageWithText.tsx": $$$4,
+    "./sections/SectionTitle.tsx": $$$5,
+  },
   functions: {},
   schemas: {
-    "./sections/GetStarted.tsx": {
+    "./sections/Announcement.tsx": {
       "inputSchema": {
         "type": "object",
         "properties": {
-          "enableInspectVSCode": {
+          "visible": {
             "type": "boolean",
-            "title": "Enable Inspect V S Code",
+            "title": "Visible",
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+          },
+          "link": {
+            "type": "string",
+            "title": "Link",
+          },
+          "bgColor": {
+            "type": "string",
+            "title": "Bg Color",
           },
         },
-        "required": [],
+        "required": [
+          "visible",
+          "text",
+          "link",
+          "bgColor",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Banner.tsx": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Image",
+          },
+          "altText": {
+            "type": "string",
+            "title": "Alt Text",
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "subTitle": {
+            "type": "string",
+            "title": "Sub Title",
+          },
+        },
+        "required": [
+          "image",
+          "altText",
+          "title",
+          "subTitle",
+        ],
       },
       "outputSchema": null,
     },
@@ -60,13 +119,6 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Favicon Url",
           },
-          "styleUrls": {
-            "type": "array",
-            "items": {
-              "type": "string",
-            },
-            "title": "Style Urls",
-          },
           "themeColor": {
             "type": "string",
             "title": "Theme Color",
@@ -78,8 +130,77 @@ const manifest: DecoManifest = {
           "url",
           "imageUrl",
           "faviconUrl",
-          "styleUrls",
           "themeColor",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Header.tsx": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "h1": {
+            "type": "string",
+            "title": "H1",
+          },
+        },
+        "required": [
+          "h1",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/ImageWithText.tsx": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+          },
+          "imagePosition": {
+            "type": "string",
+            "title": "Image Position",
+          },
+          "image": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Image",
+          },
+        },
+        "required": [
+          "title",
+          "text",
+          "image",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/SectionTitle.tsx": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "themeTitle": {
+            "type": "string",
+            "title": "Theme Title",
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "subTitle": {
+            "type": "string",
+            "title": "Sub Title",
+          },
+        },
+        "required": [
+          "themeTitle",
+          "title",
+          "subTitle",
         ],
       },
       "outputSchema": null,
