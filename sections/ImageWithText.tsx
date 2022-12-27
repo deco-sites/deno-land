@@ -18,14 +18,14 @@ export default function ImageWithText(
 
   return (
     <div class={imagePosition == "right" ? cssRight : cssLeft}>
-      <div class="w-full rounded-lg md:rounded-2xl lg:w-[70%] bg-azure">
+      <div class="w-full rounded-lg md:rounded-2xl lg:w-[70%] bg-azure card-shadow">
         <img src={image} alt="" class="p-3.5 lg:py-11 lg:px-10" />
       </div>
       <div class="flex flex-col gap-2 justify-center items-center">
-        <h3 class="text-left font-bold text-primary text-3xl md:text-4xl">
+        <h3 class="w-full text-left font-bold text-primary text-3xl md:text-4xl">
           {title}
         </h3>
-        <p class="text-left text-primary-light font-medium text-lg md:text-2xl font-medium">
+        <p class="text-left text-blue-light font-medium text-lg md:text-2xl">
           {text}
         </p>
       </div>

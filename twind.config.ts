@@ -1,7 +1,7 @@
 /** @type {import('$fresh/plugins/twind').Options} */
 export default {
-  plugin:{
-
+  plugins: {
+    "card-shadow": { "box-shadow": "0px 4px 4px rgb(0 0 0 / 25%)" },
   },
   theme: {
     screens: {
@@ -12,27 +12,30 @@ export default {
       "2xl": "1536px",
     },
     colors: {
-      primary: "#12124B",
-      "primary-dark": "#003232",
-      "primary-light": "#0A4BAB",
-      "primary-super-light": "#209DEE",
+      "primary-blue": "#12124B",
+      primary: "#056CF0",
+      "primary-opacity": "#3587EF",
+      "blue-dark": "#12124B",
+      "blue-light": "#0A4BAB",
+      "blue-super-light": "#209DEE",
       transparent: "transparent",
       secondary: "white",
-      "azure": "#E1F8FF"
-      
+      "azure": "#E1F8FF",
     },
     fontFamily: {
-      sans: ["ui-sans-serif", "sans-serif"],
-      serif: ["serif"]
+      sans: ["ui-sans-serif", "system-ui"],
+      serif: ["sans-serif"],
     },
     backgroundImage: (theme) => ({
       // Use a own gradient
-      'gradient-radial': `radial-gradient(${theme('colors.blue.500')}, ${theme(
-        'colors.red.500',
-      )});`,
+      "gradient-radial": `radial-gradient(${theme("colors.blue.500")}, ${
+        theme(
+          "colors.red.500",
+        )
+      });`,
       // Integrate with gradient colors stops (from-*, via-*, to-*)
-      'gradient-15':
-        'linear-gradient(.15turn, var(--tw-gradient-stops,var(--tw-gradient-from,transparent),var(--tw-gradient-to,transparent)))',
+      "gradient-15":
+        "linear-gradient(.15turn, var(--tw-gradient-stops,var(--tw-gradient-from,transparent),var(--tw-gradient-to,transparent)))",
     }),
   },
 };

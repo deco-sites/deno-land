@@ -14,7 +14,9 @@ import * as $$$1 from "./sections/Banner.tsx";
 import * as $$$2 from "./sections/Head.tsx";
 import * as $$$3 from "./sections/Header.tsx";
 import * as $$$4 from "./sections/ImageWithText.tsx";
-import * as $$$5 from "./sections/SectionTitle.tsx";
+import * as $$$5 from "./sections/QuoteBlock.tsx";
+import * as $$$6 from "./sections/SectionTitle.tsx";
+import * as $$$7 from "./sections/ThreeColumnCards.tsx";
 
 const manifest: DecoManifest = {
   routes: {
@@ -30,7 +32,9 @@ const manifest: DecoManifest = {
     "./sections/Head.tsx": $$$2,
     "./sections/Header.tsx": $$$3,
     "./sections/ImageWithText.tsx": $$$4,
-    "./sections/SectionTitle.tsx": $$$5,
+    "./sections/QuoteBlock.tsx": $$$5,
+    "./sections/SectionTitle.tsx": $$$6,
+    "./sections/ThreeColumnCards.tsx": $$$7,
   },
   functions: {},
   schemas: {
@@ -180,6 +184,44 @@ const manifest: DecoManifest = {
       },
       "outputSchema": null,
     },
+    "./sections/QuoteBlock.tsx": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Image",
+                },
+                "link": {
+                  "type": "string",
+                  "title": "Link",
+                },
+              },
+              "required": [
+                "image",
+                "link",
+              ],
+            },
+            "title": "Images",
+          },
+        },
+        "required": [
+          "text",
+          "images",
+        ],
+      },
+      "outputSchema": null,
+    },
     "./sections/SectionTitle.tsx": {
       "inputSchema": {
         "type": "object",
@@ -201,6 +243,88 @@ const manifest: DecoManifest = {
           "themeTitle",
           "title",
           "subTitle",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/ThreeColumnCards.tsx": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "firstColumn": {
+            "title": "First Column",
+            "type": "object",
+            "properties": {
+              "svgIcon": {
+                "type": "string",
+                "title": "Svg Icon",
+              },
+              "title": {
+                "type": "string",
+                "title": "Title",
+              },
+              "subTitle": {
+                "type": "string",
+                "title": "Sub Title",
+              },
+            },
+            "required": [
+              "svgIcon",
+              "title",
+              "subTitle",
+            ],
+          },
+          "secondColumn": {
+            "title": "Second Column",
+            "type": "object",
+            "properties": {
+              "svgIcon": {
+                "type": "string",
+                "title": "Svg Icon",
+              },
+              "title": {
+                "type": "string",
+                "title": "Title",
+              },
+              "subTitle": {
+                "type": "string",
+                "title": "Sub Title",
+              },
+            },
+            "required": [
+              "svgIcon",
+              "title",
+              "subTitle",
+            ],
+          },
+          "thirdColumn": {
+            "title": "Third Column",
+            "type": "object",
+            "properties": {
+              "svgIcon": {
+                "type": "string",
+                "title": "Svg Icon",
+              },
+              "title": {
+                "type": "string",
+                "title": "Title",
+              },
+              "subTitle": {
+                "type": "string",
+                "title": "Sub Title",
+              },
+            },
+            "required": [
+              "svgIcon",
+              "title",
+              "subTitle",
+            ],
+          },
+        },
+        "required": [
+          "firstColumn",
+          "secondColumn",
+          "thirdColumn",
         ],
       },
       "outputSchema": null,
