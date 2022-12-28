@@ -9,7 +9,7 @@ export interface Props {
 export default function Header({ menu = [] }: Props) {
   return (
     <header class="h-full py-[1.125rem]">
-      <nav class="flex justify-between items-center px-14 max-w-screen-2xl m-auto">
+      <nav class="flex justify-between items-center px-7 md:px-14 max-w-screen-2xl m-auto">
         <a href="/" class="flex justify-center items-center gap-4 text-primary">
           <svg
             class="flex-none text-blue-dark h-10"
