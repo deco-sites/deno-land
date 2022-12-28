@@ -2,6 +2,17 @@
 export default {
   plugins: {
     "card-shadow": { "box-shadow": "0px 4px 4px rgb(0 0 0 / 25%)" },
+    "colorWash": {
+      "background-image": "linear-gradient(to right,var(--tw-gradient-stops))",
+      "--tw-gradient-from": "#002585",
+      "--tw-gradient-stops":
+        "var(--tw-gradient-from),var(--tw-gradient-to,rgba(0,37,133,0))",
+      "--tw-gradient-to": "#209DEE",
+      "background-repeat": " no-repeat",
+      "background-clip": "text",
+      "-webkit-background-clip": "text",
+      "-webkit-text-fill-color": "transparent",
+    },
   },
   theme: {
     screens: {
