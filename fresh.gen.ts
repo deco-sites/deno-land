@@ -11,14 +11,15 @@ import * as $3 from "./routes/index.tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
 import * as $$$0 from "./sections/Announcement.tsx";
 import * as $$$1 from "./sections/Banner.tsx";
-import * as $$$2 from "./sections/Head.tsx";
-import * as $$$3 from "./sections/Header.tsx";
-import * as $$$4 from "./sections/ImageWithText.tsx";
-import * as $$$5 from "./sections/QuillText.tsx";
-import * as $$$6 from "./sections/QuoteBlock.tsx";
-import * as $$$7 from "./sections/SectionTitle.tsx";
-import * as $$$8 from "./sections/ThreeColumnCards.tsx";
-import * as $$$9 from "./sections/TwoColumnCards.tsx";
+import * as $$$2 from "./sections/Footer.tsx";
+import * as $$$3 from "./sections/Head.tsx";
+import * as $$$4 from "./sections/Header.tsx";
+import * as $$$5 from "./sections/ImageWithText.tsx";
+import * as $$$6 from "./sections/QuillText.tsx";
+import * as $$$7 from "./sections/QuoteBlock.tsx";
+import * as $$$8 from "./sections/SectionTitle.tsx";
+import * as $$$9 from "./sections/ThreeColumnCards.tsx";
+import * as $$$10 from "./sections/TwoColumnCards.tsx";
 
 const manifest: DecoManifest = {
   routes: {
@@ -31,14 +32,15 @@ const manifest: DecoManifest = {
   sections: {
     "./sections/Announcement.tsx": $$$0,
     "./sections/Banner.tsx": $$$1,
-    "./sections/Head.tsx": $$$2,
-    "./sections/Header.tsx": $$$3,
-    "./sections/ImageWithText.tsx": $$$4,
-    "./sections/QuillText.tsx": $$$5,
-    "./sections/QuoteBlock.tsx": $$$6,
-    "./sections/SectionTitle.tsx": $$$7,
-    "./sections/ThreeColumnCards.tsx": $$$8,
-    "./sections/TwoColumnCards.tsx": $$$9,
+    "./sections/Footer.tsx": $$$2,
+    "./sections/Head.tsx": $$$3,
+    "./sections/Header.tsx": $$$4,
+    "./sections/ImageWithText.tsx": $$$5,
+    "./sections/QuillText.tsx": $$$6,
+    "./sections/QuoteBlock.tsx": $$$7,
+    "./sections/SectionTitle.tsx": $$$8,
+    "./sections/ThreeColumnCards.tsx": $$$9,
+    "./sections/TwoColumnCards.tsx": $$$10,
   },
   functions: {},
   schemas: {
@@ -109,6 +111,10 @@ const manifest: DecoManifest = {
           "subTitle",
         ],
       },
+      "outputSchema": null,
+    },
+    "./sections/Footer.tsx": {
+      "inputSchema": null,
       "outputSchema": null,
     },
     "./sections/Head.tsx": {

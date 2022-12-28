@@ -32,6 +32,7 @@ export default {
       "blue-grey": "#E1ECF2",
       transparent: "transparent",
       secondary: "white",
+      "secondary-grey": "#F3F3F3",
       "azure": "#E1F8FF",
     },
     fontFamily: {
