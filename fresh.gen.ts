@@ -18,6 +18,7 @@ import * as $$$5 from "./sections/QuillText.tsx";
 import * as $$$6 from "./sections/QuoteBlock.tsx";
 import * as $$$7 from "./sections/SectionTitle.tsx";
 import * as $$$8 from "./sections/ThreeColumnCards.tsx";
+import * as $$$9 from "./sections/TwoColumnCards.tsx";
 
 const manifest: DecoManifest = {
   routes: {
@@ -37,6 +38,7 @@ const manifest: DecoManifest = {
     "./sections/QuoteBlock.tsx": $$$6,
     "./sections/SectionTitle.tsx": $$$7,
     "./sections/ThreeColumnCards.tsx": $$$8,
+    "./sections/TwoColumnCards.tsx": $$$9,
   },
   functions: {},
   schemas: {
@@ -413,6 +415,65 @@ const manifest: DecoManifest = {
           "firstColumn",
           "secondColumn",
           "thirdColumn",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/TwoColumnCards.tsx": {
+      "inputSchema": {
+        "title": " Two Column Cards",
+        "type": "object",
+        "properties": {
+          "firstColumn": {
+            "title": "First Column",
+            "type": "object",
+            "properties": {
+              "svgIcon": {
+                "type": "string",
+                "title": "Svg Icon",
+              },
+              "title": {
+                "type": "string",
+                "title": "Title",
+              },
+              "subTitle": {
+                "type": "string",
+                "title": "Sub Title",
+              },
+            },
+            "required": [
+              "svgIcon",
+              "title",
+              "subTitle",
+            ],
+          },
+          "secondColumn": {
+            "title": "Second Column",
+            "type": "object",
+            "properties": {
+              "svgIcon": {
+                "type": "string",
+                "title": "Svg Icon",
+              },
+              "title": {
+                "type": "string",
+                "title": "Title",
+              },
+              "subTitle": {
+                "type": "string",
+                "title": "Sub Title",
+              },
+            },
+            "required": [
+              "svgIcon",
+              "title",
+              "subTitle",
+            ],
+          },
+        },
+        "required": [
+          "firstColumn",
+          "secondColumn",
         ],
       },
       "outputSchema": null,
