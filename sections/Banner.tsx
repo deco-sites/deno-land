@@ -18,11 +18,11 @@ export default function Banner(
     <div class="relative">
       <picture class="inset-0">
         <source
-          media="(max-width: 767px)"
+          media="(max-width: 1029px)"
           srcset={imageMobile}
         />
         <source
-          media="(min-width: 768px)"
+          media="(min-width: 1030px)"
           srcset={image}
         />
         <Image
@@ -37,7 +37,7 @@ export default function Banner(
       <div class="h-full w-full absolute text-secondary top-0">
         <div class="flex flex-col justify-center h-full w-full max-w-screen-xl m-auto px-5">
           <p class="text-3xl">{subTitle}</p>
-          <h1 class="text-5xl lg:text-7xl max-w-md font-bold mt-2 md:mt-8">
+          <h1 class="text-5xl lg:text-5xl xl:text-7xl max-w-md font-bold mt-2 md:mt-8">
             {title}
           </h1>
           <div class="inline-flex gap-4 flex-col lg:gap-7 lg:flex-row mt-8 md:mt-16">
