@@ -14,9 +14,10 @@ import * as $$$1 from "./sections/Banner.tsx";
 import * as $$$2 from "./sections/Head.tsx";
 import * as $$$3 from "./sections/Header.tsx";
 import * as $$$4 from "./sections/ImageWithText.tsx";
-import * as $$$5 from "./sections/QuoteBlock.tsx";
-import * as $$$6 from "./sections/SectionTitle.tsx";
-import * as $$$7 from "./sections/ThreeColumnCards.tsx";
+import * as $$$5 from "./sections/QuillText.tsx";
+import * as $$$6 from "./sections/QuoteBlock.tsx";
+import * as $$$7 from "./sections/SectionTitle.tsx";
+import * as $$$8 from "./sections/ThreeColumnCards.tsx";
 
 const manifest: DecoManifest = {
   routes: {
@@ -32,14 +33,16 @@ const manifest: DecoManifest = {
     "./sections/Head.tsx": $$$2,
     "./sections/Header.tsx": $$$3,
     "./sections/ImageWithText.tsx": $$$4,
-    "./sections/QuoteBlock.tsx": $$$5,
-    "./sections/SectionTitle.tsx": $$$6,
-    "./sections/ThreeColumnCards.tsx": $$$7,
+    "./sections/QuillText.tsx": $$$5,
+    "./sections/QuoteBlock.tsx": $$$6,
+    "./sections/SectionTitle.tsx": $$$7,
+    "./sections/ThreeColumnCards.tsx": $$$8,
   },
   functions: {},
   schemas: {
     "./sections/Announcement.tsx": {
       "inputSchema": {
+        "title": " Announcement",
         "type": "object",
         "properties": {
           "visible": {
@@ -70,6 +73,7 @@ const manifest: DecoManifest = {
     },
     "./sections/Banner.tsx": {
       "inputSchema": {
+        "title": " Banner",
         "type": "object",
         "properties": {
           "image": {
@@ -107,6 +111,7 @@ const manifest: DecoManifest = {
     },
     "./sections/Head.tsx": {
       "inputSchema": {
+        "title": " Head",
         "type": "object",
         "properties": {
           "title": {
@@ -147,6 +152,7 @@ const manifest: DecoManifest = {
     },
     "./sections/Header.tsx": {
       "inputSchema": {
+        "title": " Header",
         "type": "object",
         "properties": {
           "menu": {
@@ -159,7 +165,10 @@ const manifest: DecoManifest = {
                   "title": "Text",
                 },
                 "link": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null",
+                  ],
                   "title": "Link",
                 },
                 "submenus": {
@@ -168,11 +177,17 @@ const manifest: DecoManifest = {
                     "type": "object",
                     "properties": {
                       "text": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null",
+                        ],
                         "title": "Text",
                       },
                       "link": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null",
+                        ],
                         "title": "Link",
                       },
                     },
@@ -197,6 +212,7 @@ const manifest: DecoManifest = {
     },
     "./sections/ImageWithText.tsx": {
       "inputSchema": {
+        "title": " Image With Text",
         "type": "object",
         "properties": {
           "title": {
@@ -208,7 +224,10 @@ const manifest: DecoManifest = {
             "title": "Text",
           },
           "imagePosition": {
-            "type": "string",
+            "type": [
+              "string",
+              "null",
+            ],
             "title": "Image Position",
           },
           "image": {
@@ -217,7 +236,10 @@ const manifest: DecoManifest = {
             "title": "Image",
           },
           "backgroundAtImage": {
-            "type": "boolean",
+            "type": [
+              "boolean",
+              "null",
+            ],
             "title": "Background At Image",
           },
         },
@@ -229,11 +251,30 @@ const manifest: DecoManifest = {
       },
       "outputSchema": null,
     },
+    "./sections/QuillText.tsx": {
+      "inputSchema": {
+        "title": " Quill Text",
+        "type": "object",
+        "properties": {
+          "html": {
+            "format": "html",
+            "type": "string",
+            "title": "Html",
+          },
+        },
+        "required": [
+          "html",
+        ],
+      },
+      "outputSchema": null,
+    },
     "./sections/QuoteBlock.tsx": {
       "inputSchema": {
+        "title": " Quote Block",
         "type": "object",
         "properties": {
           "text": {
+            "format": "html",
             "type": "string",
             "title": "Text",
           },
@@ -269,6 +310,7 @@ const manifest: DecoManifest = {
     },
     "./sections/SectionTitle.tsx": {
       "inputSchema": {
+        "title": " Section Title",
         "type": "object",
         "properties": {
           "themeTitle": {
@@ -294,6 +336,7 @@ const manifest: DecoManifest = {
     },
     "./sections/ThreeColumnCards.tsx": {
       "inputSchema": {
+        "title": " Three Column Cards",
         "type": "object",
         "properties": {
           "firstColumn": {
