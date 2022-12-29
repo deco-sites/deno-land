@@ -8,7 +8,7 @@ import * as $0 from "./routes/[...catchall].tsx";
 import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/index.tsx";
-import * as $$0 from "./islands/LiveControls.tsx";
+
 import * as $$$0 from "./sections/Announcement.tsx";
 import * as $$$1 from "./sections/Banner.tsx";
 import * as $$$2 from "./sections/Footer.tsx";
@@ -28,7 +28,7 @@ const manifest: DecoManifest = {
     "./routes/_middleware.ts": $2,
     "./routes/index.tsx": $3,
   },
-  islands: { "./islands/LiveControls.tsx": $$0 },
+  islands: {},
   sections: {
     "./sections/Announcement.tsx": $$$0,
     "./sections/Banner.tsx": $$$1,
@@ -281,10 +281,15 @@ const manifest: DecoManifest = {
         "title": " Quote Block",
         "type": "object",
         "properties": {
-          "text": {
+          "textDesk": {
             "format": "html",
             "type": "string",
-            "title": "Text",
+            "title": "Text Desk",
+          },
+          "textMob": {
+            "format": "html",
+            "type": "string",
+            "title": "Text Mob",
           },
           "images": {
             "type": "array",
@@ -310,7 +315,8 @@ const manifest: DecoManifest = {
           },
         },
         "required": [
-          "text",
+          "textDesk",
+          "textMob",
           "images",
         ],
       },

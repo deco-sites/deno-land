@@ -5,16 +5,20 @@ import QuillText from "$start/sections/QuillText.tsx";
 import type { HTML } from "$live/std/ui/types/HTML.ts";
 
 export interface Props {
-  text: HTML;
+  textDesk: HTML;
+  textMob: HTML;
   images: { image: LiveImage; link: string }[];
 }
 
-export default function QuoteBlock({ text, images }: Props) {
+export default function QuoteBlock({ textDesk, textMob, images }: Props) {
   return (
     <div class="bg-gradient-15 from-blue-dark to-blue-super-light py-14 px-6 lg:pt-24 lg:pb-20 mt-16">
       <div class="w-full max-w-screen-xl m-auto">
-        <blockquote class="text-secondary font-semibold text-2xl lg:text-[2.75rem] leading-tight text-left md:text-center">
-          <QuillText html={text} />
+        <blockquote class="text-secondary font-semibold text-2xl lg:text-[2.75rem] leading-tight text-left md:text-center hidden md:block">
+          <QuillText html={textDesk} />
+        </blockquote>
+        <blockquote class="text-secondary font-semibold text-2xl lg:text-[2.75rem] leading-tight text-left md:text-center block md:hidden">
+          <QuillText html={textMob} />
         </blockquote>
         <div class="flex flex-wrap justify-items-start md:justify-center items-center mt-11 gap-8 md:gap-20">
           {images.map((image) => {

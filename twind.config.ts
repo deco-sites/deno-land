@@ -1,7 +1,14 @@
 /** @type {import('$fresh/plugins/twind').Options} */
 export default {
   plugins: {
-    "card-shadow": { "box-shadow": "0px 4px 4px rgb(0 0 0 / 25%)" },
+    "card-shadow": {
+      "box-shadow": "0px 4px 4px rgb(0 0 0 / 25%)",
+    },
+    "polygon": {
+      "box-shadow": "0px",
+      "clip-path":
+        "polygon(calc(50% - 15px * 2 / 3) 15px,50% 0,calc(50% + 15px * 2 / 3) 15px)",
+    },
     "colorWash": {
       "background-image": "linear-gradient(to right,var(--tw-gradient-stops))",
       "--tw-gradient-from": "#002585",

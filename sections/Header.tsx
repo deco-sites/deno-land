@@ -93,20 +93,180 @@ export default function Header({ menu = [] }: Props) {
           </svg>
         </a>
 
-        <div class="text-blue-dark gap-10 hidden md:flex">
-          <ul class="flex items-center gap-8 font-medium">
+        <div class="text-blue-dark gap-10 flex items-center">
+          <details>
+            <summary class="block md:hidden">
+              <svg
+                width="21"
+                height="14"
+                viewBox="0 0 21 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  x1="0.25"
+                  y1="1.4"
+                  x2="20.25"
+                  y2="1.4"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                >
+                </line>
+                <line
+                  x1="0.25"
+                  y1="7.4"
+                  x2="20.25"
+                  y2="7.4"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                >
+                </line>
+                <line
+                  x1="0.25"
+                  y1="13.4"
+                  x2="10.25"
+                  y2="13.4"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                >
+                </line>
+              </svg>
+            </summary>
+
+            <ul class="flex flex-col items-center font-medium md:hidden w-full absolute bg-secondary left-0 top-[76px] z-10 py-4 px-8">
+              {menu.map((menu) => {
+                return (
+                  <>
+                    <details class="marker::hidden w-full min-h-[60px] border-t-1 border-[#e5e7eb] pt-4">
+                      <summary class="block flex items-center justify-between">
+                        <a href={menu.link}>{menu.text}</a>
+                        <div class="lg:hidden text-[#9CA0AA] float-right mt-1.5">
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M1 7C1 6.58579 1.33579 6.25 1.75 6.25H12.25C12.6642 6.25 13 6.58579 13 7C13 7.41421 12.6642 7.75 12.25 7.75H1.75C1.33579 7.75 1 7.41421 1 7Z"
+                              fill="currentColor"
+                            >
+                            </path>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M7 1C7.41421 1 7.75 1.33579 7.75 1.75L7.75 12.25C7.75 12.6642 7.41421 13 7 13C6.58579 13 6.25 12.6642 6.25 12.25L6.25 1.75C6.25 1.33579 6.58579 1 7 1Z"
+                              fill="currentColor"
+                            >
+                            </path>
+                          </svg>
+                          <svg
+                            class="hidden"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M1 7C1 6.58579 1.33579 6.25 1.75 6.25H12.25C12.6642 6.25 13 6.58579 13 7C13 7.41421 12.6642 7.75 12.25 7.75H1.75C1.33579 7.75 1 7.41421 1 7Z"
+                              fill="currentColor"
+                            >
+                            </path>
+                          </svg>
+                        </div>
+                      </summary>
+                      <div class="flex flex-col z-10 w-full py-4">
+                        {menu.submenus.map((submenu) => {
+                          return (
+                            <>
+                              <a
+                                href={submenu.link}
+                                target="_blank"
+                                class="text-[14px] pl-1 text-blue-dark font-semibold py-2 w-full"
+                              >
+                                {submenu.text}
+                              </a>
+                            </>
+                          );
+                        })}
+                      </div>
+                    </details>
+                  </>
+                );
+              })}
+              <button class="pl-4 bg-blue-grey w-full lg:flex-none rounded-md disabled:invisible flex">
+                <div class="flex items-center pointer-events-none">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_2006_89)">
+                      <path
+                        d="M13.3008 12.1951L10.3537 9.24807C11.0632 8.30353 11.4463 7.15382 11.445 5.97248C11.445 2.95497 8.98999 0.5 5.97248 0.5C2.95497 0.5 0.5 2.95497 0.5 5.97248C0.5 8.98999 2.95497 11.445 5.97248 11.445C7.15382 11.4463 8.30353 11.0632 9.24807 10.3537L12.1951 13.3008C12.3443 13.4341 12.5389 13.5053 12.7389 13.4997C12.9389 13.4941 13.1292 13.4121 13.2707 13.2707C13.4121 13.1292 13.4941 12.9389 13.4997 12.7389C13.5053 12.5389 13.4341 12.3443 13.3008 12.1951ZM2.06357 5.97248C2.06357 5.19937 2.29282 4.44362 2.72234 3.8008C3.15185 3.15799 3.76234 2.65697 4.4766 2.36111C5.19086 2.06526 5.97682 1.98785 6.73507 2.13867C7.49333 2.2895 8.18983 2.66179 8.7365 3.20846C9.28317 3.75513 9.65546 4.45163 9.80629 5.20989C9.95711 5.96814 9.8797 6.7541 9.58385 7.46836C9.28799 8.18262 8.78697 8.79311 8.14416 9.22262C7.50134 9.65214 6.74559 9.88139 5.97248 9.88139C4.93615 9.88015 3.94263 9.46792 3.20983 8.73513C2.47704 8.00233 2.06481 7.00881 2.06357 5.97248Z"
+                        fill="currentColor"
+                      >
+                      </path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_2006_89">
+                        <rect width="14" height="14" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <div class="py-[0.625rem] flex-auto text-left ml-[0.375rem]">
+                    Search...
+                  </div>
+                  <div class="mx-4">Ctrl K</div>
+                </div>
+              </button>
+            </ul>
+          </details>
+
+          <ul class="hidden items-center gap-8 font-medium md:flex">
             {menu.map((menu) => {
               return (
                 <>
-                  <li>
-                    <a href={menu.link}>{menu.text}</a>
-                  </li>
+                  <div class="lg:hover:children:last-child:flex h-[23px]">
+                    <li class="cursor-default">
+                      <a href={menu.link}>{menu.text}</a>
+                    </li>
+                    <div class="hidden">
+                      <div
+                        class={`hidden ${
+                          menu.submenus.length > 0 ? "md:block" : ""
+                        } w-full h-[15px] bg-blue-grey polygon`}
+                      >
+                      </div>
+                      <label class="flex flex-col top-[60px] absolute z-10 bg-blue-grey pb-2 pl-2 mb-3 space-y-1.5 lg:absolute lg:pl-0 lg:py-2 lg:-mt-[-6px] lg:mb-0 lg:space-y-0 lg:rounded-md lg:overflow-hidden lg:divide-y lg:divide-secondary">
+                        {menu.submenus.map((submenu) => {
+                          return (
+                            <a
+                              href={submenu.link}
+                              target="_blank"
+                              class="text-blue-dark font-normal py-1.5 pl-1 py-3 lg:py-3.5 lg:px-4 w-full"
+                            >
+                              {submenu.text}
+                            </a>
+                          );
+                        })}
+                      </label>
+                    </div>
+                  </div>
                 </>
               );
             })}
           </ul>
 
-          <button class="pl-4 bg-blue-grey flex-grow lg:w-80 lg:flex-none rounded-md disabled:invisible">
+          <button class="pl-4 bg-blue-grey flex-grow lg:w-80 lg:flex-none rounded-md disabled:invisible hidden md:flex">
             <div class="flex items-center pointer-events-none">
               <svg
                 width="14"
