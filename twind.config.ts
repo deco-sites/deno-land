@@ -20,6 +20,9 @@ export default {
       "-webkit-background-clip": "text",
       "-webkit-text-fill-color": "transparent",
     },
+    "teste[open]": {
+      "margin-top": "50px",
+    },
   },
   theme: {
     screens: {

@@ -114,7 +114,63 @@ const manifest: DecoManifest = {
       "outputSchema": null,
     },
     "./sections/Footer.tsx": {
-      "inputSchema": null,
+      "inputSchema": {
+        "title": " Footer",
+        "type": "object",
+        "properties": {
+          "menu": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                },
+                "link": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Link",
+                },
+                "submenus": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": [
+                          "string",
+                          "null",
+                        ],
+                        "title": "Text",
+                      },
+                      "link": {
+                        "type": [
+                          "string",
+                          "null",
+                        ],
+                        "title": "Link",
+                      },
+                    },
+                    "required": [],
+                  },
+                  "title": "Submenus",
+                },
+              },
+              "required": [
+                "text",
+                "submenus",
+              ],
+            },
+            "title": "Menu",
+          },
+        },
+        "required": [
+          "menu",
+        ],
+      },
       "outputSchema": null,
     },
     "./sections/Head.tsx": {

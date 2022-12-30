@@ -1,3 +1,5 @@
+import { tw } from "twind/css";
+
 export interface Props {
   menu: {
     text: string;
@@ -132,39 +134,57 @@ export default function Header({ menu = [] }: Props) {
                 </line>
               </svg>
             </summary>
-
+            <div class="absolute w-8 h-8 bg-secondary top-7 pointer-events-none">
+              <svg
+                class="h-6 w-6"
+                stroke="currentColor"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokelinecap="round"
+                  strokelinejoin="round"
+                  strokewidth="4"
+                  d="M6 18L18 6M6 6l12 12"
+                >
+                </path>
+              </svg>
+            </div>
             <ul class="flex flex-col items-center font-medium md:hidden w-full absolute bg-secondary left-0 top-[76px] z-10 py-4 px-8">
               {menu.map((menu) => {
-                return (
-                  <>
-                    <details class="marker::hidden w-full min-h-[60px] border-t-1 border-[#e5e7eb] pt-4">
-                      <summary class="block flex items-center justify-between">
-                        <a href={menu.link}>{menu.text}</a>
-                        <div class="lg:hidden text-[#9CA0AA] float-right mt-1.5">
-                          <svg
-                            width="14"
-                            height="14"
-                            viewBox="0 0 14 14"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M1 7C1 6.58579 1.33579 6.25 1.75 6.25H12.25C12.6642 6.25 13 6.58579 13 7C13 7.41421 12.6642 7.75 12.25 7.75H1.75C1.33579 7.75 1 7.41421 1 7Z"
-                              fill="currentColor"
+                if (menu.submenus.length > 0) {
+                  return (
+                    <>
+                      <details class="w-full min-h-[60px] border-t-1 border-[#e5e7eb] pt-4 relative">
+                        <summary class="block flex items-center justify-between">
+                          <a href={menu.link}>{menu.text}</a>
+                          <div class={`text-[#9CA0AA] float-right mt-1.5`}>
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 14 14"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
                             >
-                            </path>
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M7 1C7.41421 1 7.75 1.33579 7.75 1.75L7.75 12.25C7.75 12.6642 7.41421 13 7 13C6.58579 13 6.25 12.6642 6.25 12.25L6.25 1.75C6.25 1.33579 6.58579 1 7 1Z"
-                              fill="currentColor"
-                            >
-                            </path>
-                          </svg>
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M1 7C1 6.58579 1.33579 6.25 1.75 6.25H12.25C12.6642 6.25 13 6.58579 13 7C13 7.41421 12.6642 7.75 12.25 7.75H1.75C1.33579 7.75 1 7.41421 1 7Z"
+                                fill="currentColor"
+                              >
+                              </path>
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M7 1C7.41421 1 7.75 1.33579 7.75 1.75L7.75 12.25C7.75 12.6642 7.41421 13 7 13C6.58579 13 6.25 12.6642 6.25 12.25L6.25 1.75C6.25 1.33579 6.58579 1 7 1Z"
+                                fill="currentColor"
+                              >
+                              </path>
+                            </svg>
+                          </div>
+                        </summary>
+                        <div class="absolute text-[#9CA0AA] top-[22px] right-0 w-3.5 h-3.5 bg-secondary pointer-events-none">
                           <svg
-                            class="hidden"
                             width="14"
                             height="14"
                             viewBox="0 0 14 14"
@@ -180,25 +200,34 @@ export default function Header({ menu = [] }: Props) {
                             </path>
                           </svg>
                         </div>
-                      </summary>
-                      <div class="flex flex-col z-10 w-full py-4">
-                        {menu.submenus.map((submenu) => {
-                          return (
-                            <>
-                              <a
-                                href={submenu.link}
-                                target="_blank"
-                                class="text-[14px] pl-1 text-blue-dark font-semibold py-2 w-full"
-                              >
-                                {submenu.text}
-                              </a>
-                            </>
-                          );
-                        })}
+
+                        <div class="flex flex-col z-10 w-full py-4">
+                          {menu.submenus.map((submenu) => {
+                            return (
+                              <>
+                                <a
+                                  href={submenu.link}
+                                  target="_blank"
+                                  class="text-[14px] pl-1 text-blue-dark font-semibold py-2 w-full"
+                                >
+                                  {submenu.text}
+                                </a>
+                              </>
+                            );
+                          })}
+                        </div>
+                      </details>
+                    </>
+                  );
+                } else {
+                  return (
+                    <>
+                      <div class="w-full min-h-[60px] border-t-1 border-[#e5e7eb] pt-4 relative">
+                        <a href={menu.link}>{menu.text}</a>
                       </div>
-                    </details>
-                  </>
-                );
+                    </>
+                  );
+                }
               })}
               <button class="pl-4 bg-blue-grey w-full lg:flex-none rounded-md disabled:invisible flex">
                 <div class="flex items-center pointer-events-none">

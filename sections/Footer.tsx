@@ -1,4 +1,12 @@
-export default function Footer() {
+export interface Props {
+  menu: {
+    text: string;
+    link?: string;
+    submenus: { text?: string; link?: string }[];
+  }[];
+}
+
+export default function Footer({ menu = [] }: Props) {
   return (
     <footer class="w-full bg-secondary-grey py-7 lg:py-20">
       <div class="flex flex-col md:flex-row gap-5 justify-between max-w-screen-2xl m-auto px-7 md:px-14">
@@ -49,7 +57,99 @@ export default function Footer() {
             </defs>
           </svg>
         </div>
-        <div>Links</div>
+        <div>
+          <div class="hidden md:flex gap-16">
+            {menu.map((menu) => {
+              return (
+                <>
+                  <div>
+                    <label class="text-[14px] font-semibold mb-2 block">
+                      {menu.text}
+                    </label>
+                    <div class="text-[#6C6E78] flex flex-col gap-1.5">
+                      {menu.submenus.map((submenu) => {
+                        return (
+                          <a
+                            class="whitespace-nowrap block hover:underline text-[14px]"
+                            href={submenu.link}
+                          >
+                            {submenu.text}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+          </div>
+          <div class="flex flex-col md:hidden">
+            {menu.map((menu) => {
+              return (
+                <>
+                  <details class="w-full min-h-[60px] border-t-1 border-[#e5e7eb] pt-4 relative">
+                    <summary class="block text-[14px] font-semibold mb-2 block">
+                      {menu.text}
+                      <div class={`text-[#9CA0AA] float-right mt-1.5`}>
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M1 7C1 6.58579 1.33579 6.25 1.75 6.25H12.25C12.6642 6.25 13 6.58579 13 7C13 7.41421 12.6642 7.75 12.25 7.75H1.75C1.33579 7.75 1 7.41421 1 7Z"
+                            fill="currentColor"
+                          >
+                          </path>
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M7 1C7.41421 1 7.75 1.33579 7.75 1.75L7.75 12.25C7.75 12.6642 7.41421 13 7 13C6.58579 13 6.25 12.6642 6.25 12.25L6.25 1.75C6.25 1.33579 6.58579 1 7 1Z"
+                            fill="currentColor"
+                          >
+                          </path>
+                        </svg>
+                      </div>
+                    </summary>
+                    <div class="absolute text-[#9CA0AA] top-[22px] right-0 w-3.5 h-3.5 bg-secondary-grey pointer-events-none">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1 7C1 6.58579 1.33579 6.25 1.75 6.25H12.25C12.6642 6.25 13 6.58579 13 7C13 7.41421 12.6642 7.75 12.25 7.75H1.75C1.33579 7.75 1 7.41421 1 7Z"
+                          fill="currentColor"
+                        >
+                        </path>
+                      </svg>
+                    </div>
+                    <div class="text-[#6C6E78] flex flex-col gap-1.5 pb-4">
+                      {menu.submenus.map((submenu) => {
+                        return (
+                          <a
+                            class="whitespace-nowrap block hover:underline text-[14px]"
+                            href={submenu.link}
+                          >
+                            {submenu.text}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </details>
+                </>
+              );
+            })}
+          </div>
+        </div>
         <div class="flex flex-col gap-4">
           <iframe
             src="https://denostatus.com/embed-status/light-sm"
