@@ -61,7 +61,6 @@ export default function Footer({ menu = [] }: Props) {
           <div class="hidden md:flex gap-16">
             {menu.map((menu) => {
               return (
-                <>
                   <div>
                     <label class="text-[14px] font-semibold mb-2 block">
                       {menu.text}
@@ -79,7 +78,6 @@ export default function Footer({ menu = [] }: Props) {
                       })}
                     </div>
                   </div>
-                </>
               );
             })}
           </div>
