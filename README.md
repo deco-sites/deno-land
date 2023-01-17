@@ -1,6 +1,6 @@
 # Deno.Land
 
-[Project Here](https://github.com/deco-sites/deno-land)
+[Project Here](https://deno-land.deco.site/)
 
 ---
 
